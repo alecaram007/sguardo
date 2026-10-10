@@ -1,0 +1,19 @@
+{
+  "name": "sguardo-mac",
+  "version": "1.0.0",
+  "description": "Sguardo per Mac: chi ha letto davvero questo codice? Registra riga per riga l'attenzione umana; la verifica per la CI fallisce se righe critiche non sono mai state lette.",
+  "type": "module",
+  "private": true,
+  "license": "UNLICENSED",
+  "bin": {
+    "sguardo": "bin/sguardo.mjs"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test",
+    "demo": "node bin/demo.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

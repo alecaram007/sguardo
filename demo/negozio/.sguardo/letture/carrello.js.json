@@ -1,0 +1,31 @@
+{
+  "formato": "sguardo/1",
+  "file": "carrello.js",
+  "righe": {
+    "0f7307579438#0": {"secondi": 1.408, "simulati": 1.408, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "27a47ee22dad#0": {"secondi": 1.746, "simulati": 1.746, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "290d7f4ce1d4#0": {"secondi": 3.098, "simulati": 3.098, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "315ca94ecd29#0": {"secondi": 0.507, "simulati": 0.507, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "3ef1467e5e98#0": {"secondi": 2.534, "simulati": 2.534, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "621ff5af16c7#0": {"secondi": 3.661, "simulati": 3.661, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "62e86b45f09f#0": {"secondi": 0.901, "simulati": 0.901, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "63416315ec54#0": {"secondi": 1.859, "simulati": 1.859, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "85a8e933b720#0": {"secondi": 1.802, "simulati": 1.802, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "8bad091c0ca5#0": {"secondi": 2.534, "simulati": 2.534, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "8f966aef8a8d#0": {"secondi": 4.111, "simulati": 4.111, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "93d9996c89ad#0": {"secondi": 1.971, "simulati": 1.971, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "943e6850ee9a#0": {"secondi": 5.069, "simulati": 5.069, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "985045f1c057#0": {"secondi": 0.451, "simulati": 0.451, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "ab20931d56cb#0": {"secondi": 2.985, "simulati": 2.985, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "acc8ecd4e5cc#0": {"secondi": 1.915, "simulati": 1.915, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "ae7ee6708162#0": {"secondi": 3.605, "simulati": 3.605, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "d10b36aa74a5#0": {"secondi": 0.451, "simulati": 0.451, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "d10b36aa74a5#1": {"secondi": 0.451, "simulati": 0.451, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "d10b36aa74a5#2": {"secondi": 0.451, "simulati": 0.451, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "d10b36aa74a5#3": {"secondi": 0.451, "simulati": 0.451, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "d10b36aa74a5#4": {"secondi": 0.451, "simulati": 0.451, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "d10b36aa74a5#5": {"secondi": 0.451, "simulati": 0.451, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "db8a3188b2b9#0": {"secondi": 0.788, "simulati": 0.788, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "f76d43b8aaf6#0": {"secondi": 1.352, "simulati": 1.352, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"}
+  }
+}

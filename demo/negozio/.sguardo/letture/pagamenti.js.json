@@ -1,0 +1,33 @@
+{
+  "formato": "sguardo/1",
+  "file": "pagamenti.js",
+  "righe": {
+    "07ba3f330d38#0": {"secondi": 1.998, "simulati": 1.998, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "238cc3fb2ad7#0": {"secondi": 1.645, "simulati": 1.645, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "2dfb88d165e8#0": {"secondi": 3.231, "simulati": 3.231, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "408a96d93913#0": {"secondi": 2.996, "simulati": 2.996, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "42d0014a7091#0": {"secondi": 0.881, "simulati": 0.881, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "532d0e95596e#0": {"secondi": 1.469, "simulati": 1.469, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "65ce76016c0f#0": {"secondi": 3.114, "simulati": 3.114, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "77d7c17d7506#0": {"secondi": 1.116, "simulati": 1.116, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "7ae095df8981#0": {"secondi": 1.528, "simulati": 1.528, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "8354703ed4df#0": {"secondi": 2.115, "simulati": 2.115, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "87b51a20f235#0": {"secondi": 1.293, "simulati": 1.293, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "8ae3495b40e4#0": {"secondi": 0.646, "simulati": 0.646, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "9022db392726#0": {"secondi": 2.585, "simulati": 2.585, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "93bf67b549d4#0": {"secondi": 0.764, "simulati": 0.764, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "9b0de79f7147#0": {"secondi": 2.291, "simulati": 2.291, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "9d8b2b5670d1#0": {"secondi": 0.47, "simulati": 0.47, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "b026d47dd8cd#0": {"secondi": 3.702, "simulati": 3.702, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "c46698ff0a20#0": {"secondi": 4.113, "simulati": 4.113, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "d10b36aa74a5#0": {"secondi": 0.47, "simulati": 0.47, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "d10b36aa74a5#1": {"secondi": 0.47, "simulati": 0.47, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "d10b36aa74a5#2": {"secondi": 0.47, "simulati": 0.47, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "d10b36aa74a5#3": {"secondi": 0.47, "simulati": 0.47, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "d10b36aa74a5#4": {"secondi": 0.47, "simulati": 0.47, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "e579e1d59d86#0": {"secondi": 2.703, "simulati": 2.703, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "e5ca3af6dc03#0": {"secondi": 3.584, "simulati": 3.584, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "f96124c551a9#0": {"secondi": 2.879, "simulati": 2.879, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"},
+    "ff64caccf8bd#0": {"secondi": 2.526, "simulati": 2.526, "sessioni": 1, "ultima": "2026-10-01", "origine": "simulazione"}
+  }
+}

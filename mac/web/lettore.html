@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Sguardo · lettore</title>
+<link rel="icon" href="icona.svg" type="image/svg+xml">
+<link rel="stylesheet" href="stile.css">
+<link rel="stylesheet" href="lettore.css">
+<script type="module" src="lettore.js"></script>
+</head>
+<body class="lettore">
+<header class="testa-lettore">
+  <a class="marchio" href="/" id="marchio" aria-label="Sguardo: torna all'elenco dei file">
+    <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><path d="M1 16C8 4 24 4 31 16C24 28 8 28 1 16Z" fill="currentColor"/><circle cx="16" cy="16" r="6.5" fill="#3fb950"/><circle cx="16" cy="16" r="3" fill="var(--carta)"/></svg>
+    <span class="solo-largo">Sguardo</span>
+  </a>
+  <h1 class="nome-file" id="nome-file">…</h1>
+  <span class="badge ia" id="badge-ia" hidden>Scritto dall'IA</span>
+  <div class="registrazione" id="registrazione">
+    <span class="punto" id="reg-punto" aria-hidden="true"></span>
+    <strong id="reg-testo">In attesa</strong>
+    <span class="tempo" id="reg-tempo"></span>
+  </div>
+  <span class="vh" id="reg-annuncio" role="status" aria-live="polite"></span>
+  <button type="button" class="icona" id="apri-cerca" aria-label="Cerca nel file" title="Cerca (⌘F o Ctrl+F)" aria-controls="cerca" aria-expanded="false">
+    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Zm5.3-2.2L21 21"/></svg>
+  </button>
+  <button type="button" class="bottone" id="fine">Fine</button>
+</header>
+
+<div class="cerca" id="cerca" role="search" hidden>
+  <label for="cerca-testo" class="vh">Cerca nel file</label>
+  <input id="cerca-testo" type="search" placeholder="Cerca nel file…" autocomplete="off" spellcheck="false" enterkeyhint="search">
+  <span class="conto" id="cerca-conto" aria-live="polite"></span>
+  <label class="maiuscole" title="Distingui maiuscole e minuscole"><input type="checkbox" id="cerca-maiuscole"><span>Aa</span><span class="vh">Distingui maiuscole e minuscole</span></label>
+  <button type="button" class="icona" id="cerca-prec" aria-label="Occorrenza precedente" title="Precedente (Maiusc+Invio)">
+    <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m4 10 4-4 4 4"/></svg>
+  </button>
+  <button type="button" class="icona" id="cerca-succ" aria-label="Occorrenza successiva" title="Successiva (Invio)">
+    <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m4 6 4 4 4-4"/></svg>
+  </button>
+  <button type="button" class="icona" id="cerca-chiudi" aria-label="Chiudi la ricerca" title="Chiudi (Esc)">
+    <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="m4 4 8 8M12 4l-8 8"/></svg>
+  </button>
+</div>
+
+<main class="corpo">
+  <div class="codice" id="codice" tabindex="0" role="region" aria-label="Codice del file. Frecce, Pagina su e giù, Inizio e Fine per scorrere.">
+    <div class="righe" id="righe"></div>
+    <div class="puntatore-finto" id="puntatore-finto" hidden aria-hidden="true">
+      <svg width="13" height="20" viewBox="0 0 13 20"><path d="M0 0v17l4.5-4 3 6.5 2.5-1-3-6.5h5.5Z" fill="#fff" stroke="#000"/></svg>
+    </div>
+  </div>
+  <canvas class="mappa" id="mappa" role="img" aria-label="Mappa del file"></canvas>
+</main>
+
+<footer class="stato">
+  <span class="stato-sx" id="stato-sx"></span>
+  <span class="stato-dx" id="stato-dx"></span>
+</footer>
+
+<div class="velo" id="chiuso" hidden>
+  <div class="finestra" role="alertdialog" aria-labelledby="chiuso-titolo" aria-describedby="chiuso-testo">
+    <h2 id="chiuso-titolo">Sessione chiusa</h2>
+    <p id="chiuso-testo">L'attenzione è stata salvata. Puoi chiudere questa scheda.</p>
+  </div>
+</div>
+</body>
+</html>

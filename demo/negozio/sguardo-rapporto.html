@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Sguardo · negozio</title>
+<style>
+:root{
+  --sfondo:#f4f5f7;--carta:#ffffff;--testo:#1c2128;--tenue:#626b76;--bordo:#dde1e6;--filo:#eef0f3;
+  --verde:31,136,61;--verde-pieno:#1f883d;--grigio:#c4cad2;--trama:rgba(98,107,118,.10);
+  --rosso:#cf222e;--rosso-rgb:207,34,46;--viola:#8250df;--ambra:#9a6700;
+  --k:#0550ae;--s:#8a4600;--c:#6e7781;--d:#b35900;--ombra:0 1px 2px rgba(20,25,30,.05),0 4px 14px rgba(20,25,30,.04);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --sfondo:#0d1015;--carta:#151a21;--testo:#e3e8ee;--tenue:#8b949e;--bordo:#2a313a;--filo:#1d232b;
+    --verde:63,185,80;--verde-pieno:#3fb950;--grigio:#3a414a;--trama:rgba(139,148,158,.09);
+    --rosso:#f85149;--rosso-rgb:248,81,73;--viola:#bc8cff;--ambra:#d29922;
+    --k:#7cb7ff;--s:#e2be7a;--c:#7d8590;--d:#f0906a;--ombra:none;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--sfondo);color:var(--testo);font:15px/1.5 "Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif}
+.pagina{max-width:1140px;margin:0 auto;padding:36px 20px 64px}
+.testa{display:flex;align-items:center;gap:14px}
+.testa svg{flex:none}
+h1{font-size:27px;line-height:1.2;margin:0;letter-spacing:-.015em}
+.sotto{color:var(--tenue);font-size:13.5px;margin:6px 0 26px;word-break:break-all}
+.esito{border-radius:12px;padding:14px 18px;margin:0 0 18px;display:flex;gap:12px;align-items:flex-start;font-size:14.5px}
+.esito strong{font-size:15px}
+.esito .punto{flex:none;width:12px;height:12px;border-radius:50%;margin-top:5px}
+.esito.no{background:rgba(var(--rosso-rgb),.08);border:1px solid rgba(var(--rosso-rgb),.35)}
+.esito.no .punto{background:var(--rosso)}
+.esito.no strong{color:var(--rosso)}
+.esito.si{background:rgba(var(--verde),.08);border:1px solid rgba(var(--verde),.35)}
+.esito.si .punto{background:var(--verde-pieno)}
+.esito.si strong{color:var(--verde-pieno)}
+.nota{color:var(--ambra);font-size:13.5px;margin:-6px 0 18px}
+.schede{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:12px;margin:0 0 26px}
+.scheda{background:var(--carta);border:1px solid var(--bordo);border-radius:12px;padding:14px 16px;box-shadow:var(--ombra)}
+.scheda b{display:block;font-size:30px;line-height:1.15;font-weight:650;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.scheda span{color:var(--tenue);font-size:13px}
+.scheda.rossa{border-color:rgba(var(--rosso-rgb),.45)}
+.scheda.rossa b{color:var(--rosso)}
+.scheda.verde b{color:var(--verde-pieno)}
+.metro{height:6px;border-radius:3px;background:var(--grigio);margin:9px 0 4px;overflow:hidden}
+.metro i{display:block;height:100%;background:var(--verde-pieno);border-radius:3px}
+h3{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--tenue);margin:0 0 10px;font-weight:650}
+.legenda{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13px;color:var(--tenue);margin:0 0 12px}
+.legenda span{display:inline-flex;align-items:center;gap:7px}
+.legenda i{display:inline-block;width:16px;height:11px;border-radius:2px}
+.contenitore{background:var(--carta);border:1px solid var(--bordo);border-radius:12px;overflow:auto;margin:0 0 30px;box-shadow:var(--ombra)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-weight:650;color:var(--tenue);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;padding:11px 14px;border-bottom:1px solid var(--bordo);white-space:nowrap}
+td{padding:10px 14px;border-bottom:1px solid var(--filo);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+tr.critico td:first-child{box-shadow:inset 3px 0 0 var(--rosso)}
+td a{color:inherit;text-decoration:none;font-family:"Cascadia Mono",Consolas,ui-monospace,monospace;font-size:13.5px}
+td a:hover{text-decoration:underline}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.rosso{color:var(--rosso);font-weight:650}
+.tenue{color:var(--tenue)}
+.impronta{display:flex;height:16px;border-radius:3px;overflow:hidden;min-width:180px}
+.impronta span{flex:1 1 0;min-width:1px}
+.badge{display:inline-block;font:700 10.5px/1.6 "Segoe UI",system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;padding:1px 8px;border-radius:999px;margin-left:8px;vertical-align:2px;white-space:nowrap}
+.badge.ia{color:var(--viola);border:1px solid currentColor}
+.badge.crit{color:#fff;background:var(--rosso)}
+.badge.ok{color:var(--verde-pieno);border:1px solid currentColor}
+details.file{background:var(--carta);border:1px solid var(--bordo);border-radius:12px;margin:0 0 20px;overflow:hidden;box-shadow:var(--ombra)}
+details.file.critico{border-color:rgba(var(--rosso-rgb),.6);box-shadow:0 0 0 3px rgba(var(--rosso-rgb),.10)}
+details.file>summary{list-style:none;cursor:pointer;padding:14px 18px;display:flex;flex-wrap:wrap;gap:4px 16px;align-items:baseline}
+details.file>summary::-webkit-details-marker{display:none}
+details.file>summary::before{content:'';width:7px;height:7px;border-right:2px solid var(--tenue);border-bottom:2px solid var(--tenue);transform:rotate(-45deg);margin-right:2px;align-self:center;transition:transform .15s}
+details.file[open]>summary::before{transform:rotate(45deg)}
+details.file[open]>summary{border-bottom:1px solid var(--bordo)}
+summary h2{font:600 16px/1.3 "Cascadia Mono",Consolas,ui-monospace,monospace;margin:0}
+summary .meta{color:var(--tenue);font-size:13px}
+.avviso{padding:10px 18px;font-size:13.5px;border-bottom:1px solid var(--filo);background:rgba(var(--rosso-rgb),.05)}
+.avviso a{color:var(--rosso);font-weight:650;text-decoration:none;font-variant-numeric:tabular-nums}
+.avviso a:hover{text-decoration:underline}
+.codice{overflow-x:auto;padding:8px 0;font:13px/1.65 "Cascadia Mono","Cascadia Code",Consolas,ui-monospace,"SF Mono",Menlo,monospace}
+.righe{min-width:100%;width:max-content}
+.r{display:grid;grid-template-columns:6px 20px 4.2em auto;min-height:1.65em;scroll-margin-top:40vh}
+.r .m{display:block}
+.r .x{display:block;text-align:center;font-weight:800;color:var(--rosso);font-style:normal}
+.r .n{text-align:right;padding-right:16px;color:var(--tenue);opacity:.75;user-select:none;-webkit-user-select:none}
+.r code{font:inherit;white-space:pre;padding-right:28px}
+.r.letta{background-color:rgba(var(--verde),calc(.03 + var(--a) * .13))}
+.r.letta .m{background:rgba(var(--verde),calc(.45 + var(--a) * .55))}
+.r.sfiorata{background-image:repeating-linear-gradient(135deg,var(--trama) 0 4px,transparent 4px 9px)}
+.r.sfiorata .m{background:linear-gradient(to top,rgba(var(--verde),.75) calc(var(--a) * 100%),var(--grigio) 0)}
+.r.sfiorata code,.r.sfiorata .n{opacity:.6}
+.r.mai{background-image:repeating-linear-gradient(135deg,var(--trama) 0 4px,transparent 4px 9px)}
+.r.mai .m{background:var(--grigio)}
+.r.mai code,.r.mai .n{opacity:.38}
+.r.crit.nl{background-color:rgba(var(--rosso-rgb),.06);background-image:repeating-linear-gradient(135deg,rgba(var(--rosso-rgb),.10) 0 4px,transparent 4px 9px)}
+.r.crit.nl .m{background:var(--rosso)}
+.r.crit.nl code{opacity:.8}
+.r.crit.nl .n{opacity:.9;color:var(--rosso)}
+.r:hover{outline:1px solid var(--bordo);outline-offset:-1px}
+.r:target{outline:2px solid var(--rosso);outline-offset:-2px}
+.k{color:var(--k)}.s{color:var(--s)}.c{color:var(--c);font-style:italic}.d{color:var(--d)}
+footer{color:var(--tenue);font-size:12.5px;margin-top:40px;border-top:1px solid var(--bordo);padding-top:16px;line-height:1.6}
+footer p{margin:0 0 6px}
+@media (max-width:720px){
+  .pagina{padding:24px 16px 48px}
+  h1{font-size:22px}
+  .col-imp,.col-nl{display:none}
+  .scheda b{font-size:25px}
+}
+@media print{details.file{break-inside:auto}.r:hover{outline:0}}
+</style>
+</head>
+<body>
+<div class="pagina">
+<header class="testa"><svg width="38" height="38" viewBox="0 0 32 32" aria-hidden="true"><path d="M1 16C8 4 24 4 31 16C24 28 8 28 1 16Z" fill="var(--testo)"/><circle cx="16" cy="16" r="6.5" fill="#3fb950"/><circle cx="16" cy="16" r="3" fill="var(--sfondo)"/></svg><h1>Chi ha letto questo codice?</h1></header>
+<p class="sotto">Sguardo · rapporto di attenzione umana · <strong>negozio</strong> · 1 ottobre 2026, 02:39<br>C:\sguardo\demo\negozio</p>
+<div class="esito no"><span class="punto"></span><div><strong>La verifica non passa: 1 riga critica non è stata letta da un umano.</strong><br>Qualcuno le ha scritte (forse un'IA), ma nessuno le ha ancora guardate con attenzione. Sono evidenziate in rosso qui sotto.</div></div>
+<p class="nota">Nota: il 100% dell'attenzione registrata è <strong>simulata</strong> (sguardo simula o autotest), non letta da una persona. In CI usa <code>--solo-letture</code>.</p>
+<div class="schede">
+<div class="scheda"><b>97%</b><span>delle righe lette da un umano</span><div class="metro"><i style="width:97.6%"></i></div><span>84 su 86 righe non vuote</span></div>
+<div class="scheda"><b>2</b><span>righe mai lette</span><br><span>0 altre solo sfiorate</span></div>
+<div class="scheda rossa"><b>1</b><span>riga critica non letta</span><br><span>su 23 righe critiche</span></div>
+<div class="scheda"><b>3</b><span>file sorgente</span><br><span>1 dichiarato scritto dall'IA</span></div>
+<div class="scheda"><b>3 min 9 s</b><span>di attenzione registrata</span><br><span>di cui simulata: 100%</span></div>
+</div>
+<h3>File</h3>
+<div class="contenitore"><table>
+<thead><tr><th>File</th><th class="num">Righe</th><th class="num">Lette</th><th class="col-imp">Impronta dell'attenzione</th><th class="col-nl">Non lette</th><th class="num">Critiche non lette</th></tr></thead>
+<tbody>
+<tr><td><a href="#f0">carrello.js</a></td><td class="num">25</td><td class="num"><strong>100%</strong></td><td class="col-imp"><div class="impronta" aria-hidden="true"><span style="background:rgba(var(--verde),0.521)"></span><span style="background:rgba(var(--verde),0.521)"></span><span style="background:rgba(var(--verde),0.521)"></span><span style="background:rgba(var(--verde),0.521)"></span><span style="background:rgba(var(--verde),0.521)"></span><span style="background:rgba(var(--verde),0.521)"></span><span style="background:rgba(var(--verde),0.521)"></span><span style="background:rgba(var(--verde),0.521)"></span><span style="background:rgba(var(--verde),0.521)"></span><span style="background:rgba(var(--verde),0.521)"></span><span style="background:rgba(var(--verde),0.521)"></span><span style="background:rgba(var(--verde),0.521)"></span><span style="background:rgba(var(--verde),0.521)"></span><span style="background:rgba(var(--verde),0.521)"></span><span style="background:rgba(var(--verde),0.521)"></span><span style="background:rgba(var(--verde),0.521)"></span><span style="background:rgba(var(--verde),0.521)"></span><span style="background:rgba(var(--verde),0.521)"></span><span style="background:rgba(var(--verde),0.521)"></span><span style="background:rgba(var(--verde),0.521)"></span><span style="background:rgba(var(--verde),0.521)"></span><span style="background:rgba(var(--verde),0.521)"></span><span style="background:rgba(var(--verde),0.521)"></span><span style="background:rgba(var(--verde),0.521)"></span><span style="background:rgba(var(--verde),0.521)"></span></div></td><td class="col-nl tenue">—</td><td class="num tenue">—</td></tr>
+<tr><td><a href="#f1">pagamenti.js</a></td><td class="num">27</td><td class="num"><strong>100%</strong></td><td class="col-imp"><div class="impronta" aria-hidden="true"><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span><span style="background:rgba(var(--verde),0.529)"></span></div></td><td class="col-nl tenue">—</td><td class="num tenue">—</td></tr>
+<tr class="critico"><td><a href="#f2">rimborsi.js</a><span class="badge ia">IA</span></td><td class="num">34</td><td class="num"><strong>94%</strong></td><td class="col-imp"><div class="impronta" aria-hidden="true"><span style="background:rgba(var(--verde),0.543)"></span><span style="background:rgba(var(--verde),0.543)"></span><span style="background:var(--grigio)"></span><span style="background:rgba(var(--verde),0.543)"></span><span style="background:rgba(var(--verde),0.543)"></span><span style="background:rgba(var(--verde),0.543)"></span><span style="background:rgba(var(--verde),0.543)"></span><span style="background:rgba(var(--verde),0.543)"></span><span style="background:rgba(var(--verde),0.543)"></span><span style="background:rgba(var(--verde),0.543)"></span><span style="background:rgba(var(--verde),0.543)"></span><span style="background:rgba(var(--verde),0.543)"></span><span style="background:rgba(var(--verde),0.543)"></span><span style="background:rgba(var(--verde),0.543)"></span><span style="background:rgba(var(--verde),0.737)"></span><span style="background:rgba(var(--verde),0.672)"></span><span style="background:rgba(var(--verde),0.672)"></span><span style="background:rgba(var(--verde),0.672)"></span><span style="background:var(--rosso)"></span><span style="background:rgba(var(--verde),0.672)"></span><span style="background:rgba(var(--verde),0.672)"></span><span style="background:rgba(var(--verde),0.672)"></span><span style="background:rgba(var(--verde),0.672)"></span><span style="background:rgba(var(--verde),0.672)"></span><span style="background:rgba(var(--verde),0.672)"></span><span style="background:rgba(var(--verde),0.672)"></span><span style="background:rgba(var(--verde),0.641)"></span><span style="background:rgba(var(--verde),0.641)"></span><span style="background:rgba(var(--verde),0.641)"></span><span style="background:rgba(var(--verde),0.641)"></span><span style="background:rgba(var(--verde),0.641)"></span><span style="background:rgba(var(--verde),0.641)"></span><span style="background:rgba(var(--verde),0.641)"></span><span style="background:rgba(var(--verde),0.641)"></span></div></td><td class="col-nl tenue">3, 25</td><td class="num rosso">1</td></tr>
+</tbody></table></div>
+<h3>Mappa di calore del codice</h3>
+<div class="legenda"><span><i style="background:rgba(var(--verde),.9)"></i>letta (più intensa = più attenzione)</span><span><i style="background:rgba(var(--verde),.3)"></i>sfiorata</span><span><i style="background:var(--grigio)"></i>mai letta, in ombra</span><span><i style="background:var(--rosso)"></i>critica non letta</span><span>passa il mouse su una riga per i dettagli</span></div>
+<details class="file" id="f0" open>
+<summary><h2>carrello.js</h2><span class="badge ok">letto tutto</span><span class="meta">25 righe · 100% lette · 45 s di attenzione</span></summary>
+<div class="codice"><div class="righe">
+<div class="r letta" id="f0-1" style="--a:0.042" title="riga 1 · letta · 1,9 s di attenzione su 1,7 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">1</span><code><span class="c">// carrello.js — il carrello del negozio</span></code></div>
+<div class="r letta" id="f0-2" style="--a:0.042" title="riga 2 · letta · 1,8 s di attenzione su 1,6 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">2</span><code><span class="c">// Scritto a mano dal team del negozio.</span></code></div>
+<div class="r" id="f0-3"><i class="m"></i><i class="x"></i><span class="n">3</span><code></code></div>
+<div class="r letta" id="f0-4" style="--a:0.042" title="riga 4 · letta · 0,8 s di attenzione su 0,7 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">4</span><code><span class="k">const</span> IVA = <span class="d">0.22</span>;</code></div>
+<div class="r" id="f0-5"><i class="m"></i><i class="x"></i><span class="n">5</span><code></code></div>
+<div class="r letta" id="f0-6" style="--a:0.042" title="riga 6 · letta · 1,7 s di attenzione su 1,6 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">6</span><code><span class="k">function</span> nuovoCarrello(cliente) {</code></div>
+<div class="r letta" id="f0-7" style="--a:0.042" title="riga 7 · letta · 3,0 s di attenzione su 2,7 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">7</span><code>  <span class="k">return</span> { cliente: cliente, articoli: [], creato: <span class="k">new</span> Date() };</code></div>
+<div class="r letta" id="f0-8" style="--a:0.043" title="riga 8 · letta · 0,5 s di attenzione su 0,4 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">8</span><code>}</code></div>
+<div class="r" id="f0-9"><i class="m"></i><i class="x"></i><span class="n">9</span><code></code></div>
+<div class="r letta" id="f0-10" style="--a:0.042" title="riga 10 · letta · 2,5 s di attenzione su 2,3 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">10</span><code><span class="k">function</span> aggiungi(carrello, prodotto, quantita) {</code></div>
+<div class="r letta" id="f0-11" style="--a:0.042" title="riga 11 · letta · 0,9 s di attenzione su 0,8 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">11</span><code>  <span class="k">if</span> (quantita &lt;= <span class="d">0</span>) {</code></div>
+<div class="r letta" id="f0-12" style="--a:0.042" title="riga 12 · letta · 2,0 s di attenzione su 1,8 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">12</span><code>    <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">&#39;Quantità non valida&#39;</span>);</code></div>
+<div class="r letta" id="f0-13" style="--a:0.043" title="riga 13 · letta · 0,5 s di attenzione su 0,4 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">13</span><code>  }</code></div>
+<div class="r letta" id="f0-14" style="--a:0.042" title="riga 14 · letta · 3,6 s di attenzione su 3,2 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">14</span><code>  <span class="k">const</span> riga = carrello.articoli.find(a =&gt; a.codice === prodotto.codice);</code></div>
+<div class="r letta" id="f0-15" style="--a:0.042" title="riga 15 · letta · 0,5 s di attenzione su 0,5 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">15</span><code>  <span class="k">if</span> (riga) {</code></div>
+<div class="r letta" id="f0-16" style="--a:0.042" title="riga 16 · letta · 1,4 s di attenzione su 1,2 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">16</span><code>    riga.quantita += quantita;</code></div>
+<div class="r letta" id="f0-17" style="--a:0.043" title="riga 17 · letta · 0,5 s di attenzione su 0,4 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">17</span><code>  } <span class="k">else</span> {</code></div>
+<div class="r letta" id="f0-18" style="--a:0.042" title="riga 18 · letta · 5,1 s di attenzione su 4,5 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">18</span><code>    carrello.articoli.push({ codice: prodotto.codice, prezzo: prodotto.prezzo, quantita: quantita });</code></div>
+<div class="r letta" id="f0-19" style="--a:0.043" title="riga 19 · letta · 0,5 s di attenzione su 0,4 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">19</span><code>  }</code></div>
+<div class="r letta" id="f0-20" style="--a:0.043" title="riga 20 · letta · 0,5 s di attenzione su 0,4 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">20</span><code>}</code></div>
+<div class="r" id="f0-21"><i class="m"></i><i class="x"></i><span class="n">21</span><code></code></div>
+<div class="r letta" id="f0-22" style="--a:0.042" title="riga 22 · letta · 1,9 s di attenzione su 1,7 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">22</span><code><span class="k">function</span> rimuovi(carrello, codice) {</code></div>
+<div class="r letta" id="f0-23" style="--a:0.042" title="riga 23 · letta · 3,7 s di attenzione su 3,3 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">23</span><code>  carrello.articoli = carrello.articoli.filter(a =&gt; a.codice !== codice);</code></div>
+<div class="r letta" id="f0-24" style="--a:0.043" title="riga 24 · letta · 0,5 s di attenzione su 0,4 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">24</span><code>}</code></div>
+<div class="r" id="f0-25"><i class="m"></i><i class="x"></i><span class="n">25</span><code></code></div>
+<div class="r letta" id="f0-26" style="--a:0.042" title="riga 26 · letta · 1,4 s di attenzione su 1,3 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">26</span><code><span class="k">function</span> totale(carrello) {</code></div>
+<div class="r letta" id="f0-27" style="--a:0.042" title="riga 27 · letta · 4,1 s di attenzione su 3,7 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">27</span><code>  <span class="k">const</span> imponibile = carrello.articoli.reduce((s, a) =&gt; s + a.prezzo * a.quantita, <span class="d">0</span>);</code></div>
+<div class="r letta" id="f0-28" style="--a:0.042" title="riga 28 · letta · 2,5 s di attenzione su 2,3 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">28</span><code>  <span class="k">return</span> Math.round(imponibile * (<span class="d">1</span> + IVA) * <span class="d">100</span>) / <span class="d">100</span>;</code></div>
+<div class="r letta" id="f0-29" style="--a:0.043" title="riga 29 · letta · 0,5 s di attenzione su 0,4 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">29</span><code>}</code></div>
+<div class="r" id="f0-30"><i class="m"></i><i class="x"></i><span class="n">30</span><code></code></div>
+<div class="r letta" id="f0-31" style="--a:0.042" title="riga 31 · letta · 3,1 s di attenzione su 2,8 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">31</span><code><span class="k">module</span>.exports = { nuovoCarrello, aggiungi, rimuovi, totale };</code></div>
+</div></div>
+</details>
+<details class="file" id="f1" open>
+<summary><h2>pagamenti.js</h2><span class="badge ok">letto tutto</span><span class="meta">27 righe · 100% lette · 50 s di attenzione</span></summary>
+<div class="codice"><div class="righe">
+<div class="r letta crit" id="f1-1" style="--a:0.058" title="riga 1 · letta · critica · 2,5 s di attenzione su 2,2 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">1</span><code><span class="c">// pagamenti.js — addebiti sulla carta del cliente</span></code></div>
+<div class="r letta" id="f1-2" style="--a:0.058" title="riga 2 · letta · 2,9 s di attenzione su 2,5 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">2</span><code><span class="c">// Scritto a mano e revisionato in coppia a settembre 2026.</span></code></div>
+<div class="r" id="f1-3"><i class="m"></i><i class="x"></i><span class="n">3</span><code></code></div>
+<div class="r letta" id="f1-4" style="--a:0.058" title="riga 4 · letta · 2,0 s di attenzione su 1,7 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">4</span><code><span class="k">const</span> gateway = <span class="k">require</span>(<span class="s">&#39;./gateway&#39;</span>);</code></div>
+<div class="r" id="f1-5"><i class="m"></i><i class="x"></i><span class="n">5</span><code></code></div>
+<div class="r letta" id="f1-6" style="--a:0.058" title="riga 6 · letta · 1,5 s di attenzione su 1,3 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">6</span><code><span class="k">const</span> TENTATIVI_MASSIMI = <span class="d">3</span>;</code></div>
+<div class="r" id="f1-7"><i class="m"></i><i class="x"></i><span class="n">7</span><code></code></div>
+<div class="r letta" id="f1-8" style="--a:0.058" title="riga 8 · letta · 2,1 s di attenzione su 1,8 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">8</span><code><span class="k">async</span> <span class="k">function</span> addebita(ordine, carta) {</code></div>
+<div class="r letta crit" id="f1-9" style="--a:0.058" title="riga 9 · letta · critica · 3,2 s di attenzione su 2,8 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">9</span><code>  <span class="k">const</span> token = <span class="k">await</span> gateway.autorizza(carta, ordine.totale);</code></div>
+<div class="r letta crit" id="f1-10" style="--a:0.058" title="riga 10 · letta · critica · 0,6 s di attenzione su 0,6 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">10</span><code>  <span class="k">if</span> (!token) {</code></div>
+<div class="r letta crit" id="f1-11" style="--a:0.058" title="riga 11 · letta · critica · 2,7 s di attenzione su 2,3 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">11</span><code>    <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">&#39;Pagamento rifiutato dalla banca&#39;</span>);</code></div>
+<div class="r letta" id="f1-12" style="--a:0.058" title="riga 12 · letta · 0,5 s di attenzione su 0,4 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">12</span><code>  }</code></div>
+<div class="r letta" id="f1-13" style="--a:0.058" title="riga 13 · letta · 3,6 s di attenzione su 3,1 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">13</span><code>  <span class="k">for</span> (<span class="k">let</span> tentativo = <span class="d">1</span>; tentativo &lt;= TENTATIVI_MASSIMI; tentativo++) {</code></div>
+<div class="r letta crit" id="f1-14" style="--a:0.058" title="riga 14 · letta · critica · 3,1 s di attenzione su 2,7 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">14</span><code>    <span class="k">const</span> esito = <span class="k">await</span> gateway.incassa(token, ordine.totale);</code></div>
+<div class="r letta" id="f1-15" style="--a:0.058" title="riga 15 · letta · 0,8 s di attenzione su 0,7 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">15</span><code>    <span class="k">if</span> (esito.ok) {</code></div>
+<div class="r letta crit" id="f1-16" style="--a:0.058" title="riga 16 · letta · critica · 1,1 s di attenzione su 1,0 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">16</span><code>      ordine.token = token;</code></div>
+<div class="r letta" id="f1-17" style="--a:0.058" title="riga 17 · letta · 1,6 s di attenzione su 1,4 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">17</span><code>      ordine.pagato = ordine.totale;</code></div>
+<div class="r letta" id="f1-18" style="--a:0.058" title="riga 18 · letta · 1,3 s di attenzione su 1,1 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">18</span><code>      ordine.stato = <span class="s">&#39;pagato&#39;</span>;</code></div>
+<div class="r letta" id="f1-19" style="--a:0.058" title="riga 19 · letta · 1,5 s di attenzione su 1,3 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">19</span><code>      <span class="k">return</span> esito.idTransazione;</code></div>
+<div class="r letta" id="f1-20" style="--a:0.058" title="riga 20 · letta · 0,5 s di attenzione su 0,4 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">20</span><code>    }</code></div>
+<div class="r letta" id="f1-21" style="--a:0.058" title="riga 21 · letta · 0,5 s di attenzione su 0,4 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">21</span><code>  }</code></div>
+<div class="r letta" id="f1-22" style="--a:0.058" title="riga 22 · letta · 4,1 s di attenzione su 3,5 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">22</span><code>  <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">&#39;Incasso non riuscito dopo &#39;</span> + TENTATIVI_MASSIMI + <span class="s">&#39; tentativi&#39;</span>);</code></div>
+<div class="r letta" id="f1-23" style="--a:0.058" title="riga 23 · letta · 0,5 s di attenzione su 0,4 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">23</span><code>}</code></div>
+<div class="r" id="f1-24"><i class="m"></i><i class="x"></i><span class="n">24</span><code></code></div>
+<div class="r letta crit" id="f1-25" style="--a:0.058" title="riga 25 · letta · critica · 3,0 s di attenzione su 2,6 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">25</span><code><span class="k">function</span> registraPagamento(db, ordine, idTransazione) {</code></div>
+<div class="r letta" id="f1-26" style="--a:0.058" title="riga 26 · letta · 0,9 s di attenzione su 0,8 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">26</span><code>  <span class="k">return</span> db.query(</code></div>
+<div class="r letta crit" id="f1-27" style="--a:0.058" title="riga 27 · letta · critica · 3,7 s di attenzione su 3,2 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">27</span><code>    <span class="s">&#39;INSERT INTO pagamenti (ordine, importo, transazione) VALUES (?, ?, ?)&#39;</span>,</code></div>
+<div class="r letta" id="f1-28" style="--a:0.058" title="riga 28 · letta · 2,3 s di attenzione su 2,0 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">28</span><code>    [ordine.id, ordine.pagato, idTransazione]</code></div>
+<div class="r letta" id="f1-29" style="--a:0.058" title="riga 29 · letta · 0,5 s di attenzione su 0,4 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">29</span><code>  );</code></div>
+<div class="r letta" id="f1-30" style="--a:0.058" title="riga 30 · letta · 0,5 s di attenzione su 0,4 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">30</span><code>}</code></div>
+<div class="r" id="f1-31"><i class="m"></i><i class="x"></i><span class="n">31</span><code></code></div>
+<div class="r letta crit" id="f1-32" style="--a:0.058" title="riga 32 · letta · critica · 2,6 s di attenzione su 2,2 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">32</span><code><span class="k">module</span>.exports = { addebita, registraPagamento };</code></div>
+</div></div>
+</details>
+<details class="file critico" id="f2" open>
+<summary><h2>rimborsi.js</h2><span class="badge ia">scritto dall'IA</span><span class="badge crit">1 riga critica non letta</span><span class="meta">34 righe · 94% lette · 1 min 34 s di attenzione · non lette: 3, 25</span></summary>
+<div class="avviso">Righe critiche da leggere: <a href="#f2-25">25</a></div>
+<div class="codice"><div class="righe">
+<div class="r letta crit" id="f2-1" style="--a:0.086" title="riga 1 · letta · critica · 2,3 s di attenzione su 1,9 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">1</span><code><span class="c">// rimborsi.js — resi e rimborsi dei clienti</span></code></div>
+<div class="r letta" id="f2-2" style="--a:0.086" title="riga 2 · letta · 4,7 s di attenzione su 3,7 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">2</span><code><span class="c">// Scritto dall&#39;IA (assistente di codice) il 28 settembre 2026 e unito senza modifiche.</span></code></div>
+<div class="r mai" id="f2-3" title="riga 3 · mai letta · 0 s di attenzione su 2,7 s richiesti"><i class="m"></i><i class="x"></i><span class="n">3</span><code><span class="c">// 1 ottobre 2026: aggiunto il controllo sull&#39;importo massimo.</span></code></div>
+<div class="r" id="f2-4"><i class="m"></i><i class="x"></i><span class="n">4</span><code></code></div>
+<div class="r letta" id="f2-5" style="--a:0.086" title="riga 5 · letta · 2,1 s di attenzione su 1,7 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">5</span><code><span class="k">const</span> gateway = <span class="k">require</span>(<span class="s">&#39;./gateway&#39;</span>);</code></div>
+<div class="r" id="f2-6"><i class="m"></i><i class="x"></i><span class="n">6</span><code></code></div>
+<div class="r letta" id="f2-7" style="--a:0.086" title="riga 7 · letta · 1,7 s di attenzione su 1,4 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">7</span><code><span class="k">const</span> GIORNI_PER_IL_RESO = <span class="d">30</span>;</code></div>
+<div class="r" id="f2-8"><i class="m"></i><i class="x"></i><span class="n">8</span><code></code></div>
+<div class="r letta" id="f2-9" style="--a:0.086" title="riga 9 · letta · 2,5 s di attenzione su 2,0 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">9</span><code><span class="k">function</span> giorniDallAcquisto(ordine, oggi) {</code></div>
+<div class="r letta" id="f2-10" style="--a:0.086" title="riga 10 · letta · 2,9 s di attenzione su 2,3 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">10</span><code>  <span class="k">return</span> Math.floor((oggi - ordine.data) / <span class="d">86400000</span>);</code></div>
+<div class="r letta" id="f2-11" style="--a:0.086" title="riga 11 · letta · 0,5 s di attenzione su 0,4 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">11</span><code>}</code></div>
+<div class="r" id="f2-12"><i class="m"></i><i class="x"></i><span class="n">12</span><code></code></div>
+<div class="r letta" id="f2-13" style="--a:0.086" title="riga 13 · letta · 2,1 s di attenzione su 1,7 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">13</span><code><span class="k">function</span> resoAmmesso(ordine, oggi) {</code></div>
+<div class="r letta" id="f2-14" style="--a:0.086" title="riga 14 · letta · 5,2 s di attenzione su 4,2 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">14</span><code>  <span class="k">return</span> ordine.stato === <span class="s">&#39;pagato&#39;</span> &amp;&amp; giorniDallAcquisto(ordine, oggi) &lt;= GIORNI_PER_IL_RESO;</code></div>
+<div class="r letta" id="f2-15" style="--a:0.086" title="riga 15 · letta · 0,5 s di attenzione su 0,4 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">15</span><code>}</code></div>
+<div class="r" id="f2-16"><i class="m"></i><i class="x"></i><span class="n">16</span><code></code></div>
+<div class="r letta crit" id="f2-17" style="--a:0.086" title="riga 17 · letta · critica · 2,3 s di attenzione su 1,8 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">17</span><code><span class="k">function</span> importoRimborsabile(ordine) {</code></div>
+<div class="r letta crit" id="f2-18" style="--a:0.086" title="riga 18 · letta · critica · 2,7 s di attenzione su 2,2 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">18</span><code>  <span class="k">return</span> ordine.pagato - (ordine.rimborsato || <span class="d">0</span>);</code></div>
+<div class="r letta" id="f2-19" style="--a:0.086" title="riga 19 · letta · 0,5 s di attenzione su 0,4 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">19</span><code>}</code></div>
+<div class="r" id="f2-20"><i class="m"></i><i class="x"></i><span class="n">20</span><code></code></div>
+<div class="r letta crit" id="f2-21" style="--a:0.474" title="riga 21 · letta · critica · 6,2 s di attenzione su 2,6 s richiesti · 2 sessioni · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">21</span><code><span class="k">async</span> <span class="k">function</span> emettiRimborso(ordine, importo, motivo) {</code></div>
+<div class="r letta" id="f2-22" style="--a:0.343" title="riga 22 · letta · 3,6 s di attenzione su 1,8 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">22</span><code>  <span class="k">if</span> (!resoAmmesso(ordine, <span class="k">new</span> Date())) {</code></div>
+<div class="r letta" id="f2-23" style="--a:0.343" title="riga 23 · letta · 4,0 s di attenzione su 2,0 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">23</span><code>    <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">&#39;Reso fuori tempo massimo&#39;</span>);</code></div>
+<div class="r letta" id="f2-24" style="--a:0.343" title="riga 24 · letta · 0,8 s di attenzione su 0,4 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">24</span><code>  }</code></div>
+<div class="r mai crit nl" id="f2-25" title="riga 25 · mai letta · critica · 0 s di attenzione su 2,6 s richiesti"><i class="m"></i><i class="x">!</i><span class="n">25</span><code>  <span class="k">if</span> (importo &lt;= <span class="d">0</span> || importo &gt; importoRimborsabile(ordine)) {</code></div>
+<div class="r letta crit" id="f2-26" style="--a:0.344" title="riga 26 · letta · critica · 4,6 s di attenzione su 2,3 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">26</span><code>    <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">&#39;Importo del rimborso non valido&#39;</span>);</code></div>
+<div class="r letta" id="f2-27" style="--a:0.343" title="riga 27 · letta · 0,8 s di attenzione su 0,4 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">27</span><code>  }</code></div>
+<div class="r letta crit" id="f2-28" style="--a:0.343" title="riga 28 · letta · critica · 5,7 s di attenzione su 2,8 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">28</span><code>  <span class="k">const</span> esito = <span class="k">await</span> gateway.accredita(ordine.token, importo);</code></div>
+<div class="r letta crit" id="f2-29" style="--a:0.344" title="riga 29 · letta · critica · 5,0 s di attenzione su 2,5 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">29</span><code>  ordine.rimborsato = (ordine.rimborsato || <span class="d">0</span>) + importo;</code></div>
+<div class="r letta crit" id="f2-30" style="--a:0.343" title="riga 30 · letta · critica · 5,5 s di attenzione su 2,7 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">30</span><code>  ordine.note.push(<span class="s">&#39;Rimborso di &#39;</span> + importo + <span class="s">&#39; euro: &#39;</span> + motivo);</code></div>
+<div class="r letta" id="f2-31" style="--a:0.344" title="riga 31 · letta · 2,6 s di attenzione su 1,3 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">31</span><code>  <span class="k">return</span> esito.idTransazione;</code></div>
+<div class="r letta" id="f2-32" style="--a:0.343" title="riga 32 · letta · 0,8 s di attenzione su 0,4 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">32</span><code>}</code></div>
+<div class="r" id="f2-33"><i class="m"></i><i class="x"></i><span class="n">33</span><code></code></div>
+<div class="r letta crit" id="f2-34" style="--a:0.282" title="riga 34 · letta · critica · 3,1 s di attenzione su 1,7 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">34</span><code><span class="k">function</span> riepilogoRimborsi(ordini) {</code></div>
+<div class="r letta crit" id="f2-35" style="--a:0.282" title="riga 35 · letta · critica · 5,1 s di attenzione su 2,8 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">35</span><code>  <span class="k">const</span> conRimborso = ordini.filter(o =&gt; (o.rimborsato || <span class="d">0</span>) &gt; <span class="d">0</span>);</code></div>
+<div class="r letta" id="f2-36" style="--a:0.282" title="riga 36 · letta · 0,7 s di attenzione su 0,4 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">36</span><code>  <span class="k">return</span> {</code></div>
+<div class="r letta crit" id="f2-37" style="--a:0.282" title="riga 37 · letta · critica · 2,4 s di attenzione su 1,3 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">37</span><code>    ordini: conRimborso.length,</code></div>
+<div class="r letta crit" id="f2-38" style="--a:0.282" title="riga 38 · letta · critica · 4,6 s di attenzione su 2,5 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">38</span><code>    totale: conRimborso.reduce((s, o) =&gt; s + o.rimborsato, <span class="d">0</span>)</code></div>
+<div class="r letta" id="f2-39" style="--a:0.282" title="riga 39 · letta · 0,7 s di attenzione su 0,4 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">39</span><code>  };</code></div>
+<div class="r letta" id="f2-40" style="--a:0.282" title="riga 40 · letta · 0,7 s di attenzione su 0,4 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">40</span><code>}</code></div>
+<div class="r" id="f2-41"><i class="m"></i><i class="x"></i><span class="n">41</span><code></code></div>
+<div class="r letta crit" id="f2-42" style="--a:0.282" title="riga 42 · letta · critica · 7,6 s di attenzione su 4,1 s richiesti · 1 sessione · ultima: 1 ott 2026 · origine: simulazione"><i class="m"></i><i class="x"></i><span class="n">42</span><code><span class="k">module</span>.exports = { resoAmmesso, importoRimborsabile, emettiRimborso, riepilogoRimborsi };</code></div>
+</div></div>
+</details>
+<footer><p>Una riga conta come <strong>letta</strong> quando l'attenzione accumulata raggiunge max(0,4 s; 0,05 s × carattere) (caratteri non spazio). Righe critiche: <code>password|token|segreto|secret|pagament|payment|crypt|auth|sql|admin|delete|drop|rimbors|iban</code> (da <code>.sguardo\regole.json</code>).</p><p>Sguardo misura le righe, non le persone: nei dati non c'è nessun nome, solo tempi aggregati per riga. È un'euristica (finestra attiva, attività recente, vicinanza del puntatore), non eye tracking.</p><p>Generato da Sguardo il 1 ottobre 2026 alle 02:39.</p></footer>
+</div>
+</body>
+</html>

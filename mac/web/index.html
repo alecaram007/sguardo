@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Sguardo: quali righe di codice sono state lette da una persona, e per quanto.">
+<title>Sguardo</title>
+<link rel="icon" href="icona.svg" type="image/svg+xml">
+<link rel="stylesheet" href="stile.css">
+<script type="module" src="app.js"></script>
+</head>
+<body>
+<a class="salta" href="#contenuto">Vai al contenuto</a>
+<header class="barra">
+  <a class="marchio" href="/" aria-label="Sguardo, pagina del progetto">
+    <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><path d="M1 16C8 4 24 4 31 16C24 28 8 28 1 16Z" fill="currentColor"/><circle cx="16" cy="16" r="6.5" fill="#3fb950"/><circle cx="16" cy="16" r="3" fill="var(--sfondo)"/></svg>
+    <span>Sguardo</span>
+  </a>
+  <span class="progetto" id="nome-progetto"></span>
+  <nav class="azioni" aria-label="Azioni">
+    <a class="bottone" id="link-rapporto" href="/rapporto.html" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M3 1.5h6.6L13 4.9V14a.5.5 0 0 1-.5.5h-9A.5.5 0 0 1 3 14V2a.5.5 0 0 1 .5-.5Zm6 1.2V5.5h2.8L9 2.7ZM5 8v1h6V8H5Zm0 2.5v1h6v-1H5Z"/></svg>
+      Rapporto HTML
+    </a>
+  </nav>
+</header>
+
+<main id="contenuto" class="pagina" tabindex="-1">
+  <h1>Chi ha letto questo codice?</h1>
+  <p class="sotto" id="percorso">Carico il progetto…</p>
+
+  <div id="errore" class="errore" role="alert" hidden></div>
+  <div id="esito" aria-live="polite"></div>
+
+  <div class="comandi">
+    <label class="interruttore">
+      <input type="checkbox" id="solo-letture" role="switch">
+      <span>Solo letture vere <span class="aggiornato">(come in CI: l'attenzione simulata non conta)</span></span>
+    </label>
+    <span class="destra">
+      <span class="aggiornato" id="aggiornato" aria-live="off"></span>
+      <button type="button" class="bottone secondario" id="aggiorna">Aggiorna</button>
+    </span>
+  </div>
+
+  <section class="schede" id="schede" aria-label="Statistiche"></section>
+
+  <section aria-labelledby="titolo-file">
+    <h2 id="titolo-file">File</h2>
+    <div class="legenda" aria-hidden="true">
+      <span><i style="background:rgba(var(--verde-rgb),.85)"></i>letta</span>
+      <span><i style="background:rgba(var(--verde-rgb),.3)"></i>sfiorata</span>
+      <span><i style="background:var(--grigio)"></i>mai letta</span>
+      <span><i style="background:var(--rosso)"></i>critica non letta</span>
+    </div>
+    <ul class="elenco-file" id="file" aria-describedby="spiega-file">
+      <li class="vuoto">Carico…</li>
+    </ul>
+    <p class="vh" id="spiega-file">Scegli un file per aprirlo nel lettore, che registra l'attenzione mentre lo leggi.</p>
+  </section>
+
+  <section id="sezione-critiche" aria-labelledby="titolo-critiche" hidden>
+    <h2 id="titolo-critiche">Righe critiche non lette</h2>
+    <ol class="critiche" id="critiche"></ol>
+  </section>
+
+  <footer class="piede">
+    <p id="piede-soglia"></p>
+    <p>Sguardo misura le righe, non le persone: nei dati non c'è nessun nome, solo tempi aggregati per riga.
+      È un'euristica (pagina attiva, attività recente, vicinanza del puntatore), non eye tracking.</p>
+  </footer>
+</main>
+</body>
+</html>

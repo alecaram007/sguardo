@@ -1,0 +1,23 @@
+# Eseguibili compilati: li rigenera build.cmd (o sguardo.cmd, demo.cmd, test.cmd se mancano)
+/bin/
+*.exe
+*.dll
+*.pdb
+
+# Demo della versione Mac: la ricrea mac/demo.command (o il server, copiando demo/negozio)
+/mac/demo/
+
+# Dati di lettura dei progetti che non sono la demo Windows (che resta come esempio)
+.sguardo/
+!/demo/negozio/.sguardo/
+sguardo-rapporto.html
+!/demo/negozio/sguardo-rapporto.html
+
+# Dipendenze, file temporanei e di sistema
+node_modules/
+*.log
+*.tmp
+.DS_Store
+._*
+Thumbs.db
+desktop.ini

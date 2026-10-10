@@ -1,0 +1,3 @@
+# Nessuna conversione dei fine riga: i file della demo hanno CRLF dove li ha scritti
+# Windows, e i test della versione Mac li confrontano byte per byte.
+* -text

@@ -1,0 +1,10 @@
+{
+  "_nota": "Regole di Sguardo. 'critiche' e 'marcatoriIA' sono espressioni regolari (maiuscole e minuscole indifferenti). Una riga è letta quando l'attenzione accumulata raggiunge max(sogliaMinimaSecondi; secondiPerCarattere × caratteri non spazio).",
+  "critiche": "password|token|segreto|secret|pagament|payment|crypt|auth|sql|admin|delete|drop|rimbors|iban",
+  "marcatoriIA": "scritt[oa] dall['’] ?IA|generat[oa] (dall['’] ?|da ?(un['’] ?)?)IA|AI[- ]generated|generated (by|with) (an? )?(AI|Copilot|ChatGPT|Claude|LLM)|@generated",
+  "sogliaMinimaSecondi": 0.4,
+  "secondiPerCarattere": 0.05,
+  "inattivitaSecondi": 20,
+  "estensioni": [".cs", ".js", ".mjs", ".ts", ".tsx", ".jsx", ".py", ".java", ".kt", ".go", ".rs", ".rb", ".php", ".c", ".h", ".cpp", ".hpp", ".swift", ".sql", ".ps1", ".sh", ".vb", ".fs", ".scala", ".dart", ".lua"],
+  "escludi": ["bin", "obj", "node_modules", "vendor", "dist", "build", "target"]
+}
